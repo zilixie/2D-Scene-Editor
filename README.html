@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<link type="text/css" rel="stylesheet" href="css/github-markdown.css"/>
+<link rel="stylesheet" href="css/github-markdown.css">
+<style>
+.markdown-body {
+box-sizing: border-box;
+min-width: 200px;
+max-width: 980px;
+margin: 0 auto;
+padding: 45px;
+}
+</head>
+<body>
+
+<pre><code>@media (max-width: 767px) {
+    .markdown-body {
+        padding: 15px;
+    }
+}
+</code></pre>
+
+<p></style>
+<article class="markdown-body"></p>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "all"} } });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<div style="display:none">
+<span class="math">\(\newcommand{\A}{\mat{A}}\)</span>
+<span class="math">\(\newcommand{\B}{\mat{B}}\)</span>
+<span class="math">\(\newcommand{\C}{\mat{C}}\)</span>
+<span class="math">\(\newcommand{\D}{\mat{D}}\)</span>
+<span class="math">\(\newcommand{\E}{\mat{E}}\)</span>
+<span class="math">\(\newcommand{\F}{\mat{F}}\)</span>
+<span class="math">\(\newcommand{\G}{\mat{G}}\)</span>
+<span class="math">\(\newcommand{\H}{\mat{H}}\)</span>
+<span class="math">\(\newcommand{\I}{\mat{I}}\)</span>
+<span class="math">\(\newcommand{\J}{\mat{J}}\)</span>
+<span class="math">\(\newcommand{\K}{\mat{K}}\)</span>
+<span class="math">\(\newcommand{\L}{\mat{L}}\)</span>
+<span class="math">\(\newcommand{\M}{\mat{M}}\)</span>
+<span class="math">\(\newcommand{\N}{\mat{N}}\)</span>
+<span class="math">\(\newcommand{\One}{\mathbf{1}}\)</span>
+<span class="math">\(\newcommand{\P}{\mat{P}}\)</span>
+<span class="math">\(\newcommand{\Q}{\mat{Q}}\)</span>
+<span class="math">\(\newcommand{\Rot}{\mat{R}}\)</span>
+<span class="math">\(\newcommand{\R}{\mathbb{R}}\)</span>
+<span class="math">\(\newcommand{\S}{\mathcal{S}}\)</span>
+<span class="math">\(\newcommand{\T}{\mat{T}}\)</span>
+<span class="math">\(\newcommand{\U}{\mat{U}}\)</span>
+<span class="math">\(\newcommand{\V}{\mat{V}}\)</span>
+<span class="math">\(\newcommand{\W}{\mat{W}}\)</span>
+<span class="math">\(\newcommand{\X}{\mat{X}}\)</span>
+<span class="math">\(\newcommand{\Y}{\mat{Y}}\)</span>
+<span class="math">\(\newcommand{\argmax}{\mathop{\text{argmax}}}\)</span>
+<span class="math">\(\newcommand{\argmin}{\mathop{\text{argmin}}}\)</span>
+<span class="math">\(\newcommand{\a}{\vec{a}}\)</span>
+<span class="math">\(\newcommand{\b}{\vec{b}}\)</span>
+<span class="math">\(\newcommand{\c}{\vec{c}}\)</span>
+<span class="math">\(\newcommand{\d}{\vec{d}}\)</span>
+<span class="math">\(\newcommand{\e}{\vec{e}}\)</span>
+<span class="math">\(\newcommand{\f}{\vec{f}}\)</span>
+<span class="math">\(\newcommand{\g}{\vec{g}}\)</span>
+<span class="math">\(\newcommand{\mat}[1]{\mathbf{#1}}\)</span>
+<span class="math">\(\newcommand{\min}{\mathop{\text{min}}}\)</span>
+<span class="math">\(\newcommand{\m}{\vec{m}}\)</span>
+<span class="math">\(\newcommand{\n}{\vec{n}}\)</span>
+<span class="math">\(\newcommand{\p}{\vec{p}}\)</span>
+<span class="math">\(\newcommand{\q}{\vec{q}}\)</span>
+<span class="math">\(\newcommand{\r}{\vec{r}}\)</span>
+<span class="math">\(\newcommand{\transpose}{{\mathsf T}}\)</span>
+<span class="math">\(\newcommand{\tr}[1]{\mathop{\text{tr}}{\left(#1\right)}}\)</span>
+<span class="math">\(\newcommand{\s}{\vec{s}}\)</span>
+<span class="math">\(\newcommand{\t}{\vec{t}}\)</span>
+<span class="math">\(\newcommand{\u}{\vec{u}}\)</span>
+<span class="math">\(\newcommand{\vec}[1]{\mathbf{#1}}\)</span>
+<span class="math">\(\newcommand{\x}{\vec{x}}\)</span>
+<span class="math">\(\newcommand{\y}{\vec{y}}\)</span>
+<span class="math">\(\newcommand{\z}{\vec{z}}\)</span>
+<span class="math">\(\newcommand{\0}{\vec{0}}\)</span>
+<span class="math">\(\renewcommand{\v}{\vec{v}}\)</span>
+<!-- https://github.com/mathjax/MathJax/issues/1766 -->
+<span class="math">\(\renewcommand{\hat}[1]{\widehat{#1}}\)</span>
+</div>
+
+<h1 id="computergraphics–raytracing">CS-GY-6533 Computer Graphic: 2D Editor</h1>
+<p>A 2D triangles scene editor implemented in C++ combined with OpenGL. It supports the functionalities of <code>insert</code>, <code>tranlate</code>, <code>colorize</code>, <code>rotate</code>, <code>scale</code>, <code>animate</code> and it allow users to export scene into <code>.svg</code> files.</p>
+
+<h2 id="ds">How To Use</h2>
+<p><code>I</code>: Start Insertion mode.<br>
+<code>O</code>: Start Translation mode.<br>
+<code>P</code>: Start Deletion mode.<br>
+<code>C</code>: Start Colorization mode.<br>
+<code>U</code>: Start Animation mode.<br>
+<code>Y</code>: Start Bezier mode.<br>
+<code>E</code>: Reset to default mode.<br><br>
+
+<code>W,S,A,D</code>: Translate the entire scene up, down, left, right respectively by 20%.<br>
+<code>+,-</code>: Zoom in or out by 20%.<br>
+<code>H,J</code>: Rotate the selected triangle by 10 degree clockwise or counter-clockwise around the triangle barycenter.<br>
+<code>K,L</code>: Scale the selected triangle up or down by 25% respectively.<br>
+<code>1-9</code>: In Colorization mode, after clicking a triangle vertex, press key <code>1-9</code> to change its color.<br>
+<code>1-7</code>: In Animation mode, after selecting a triangle by clicking on it, press key <code>1-7</code> to change the way it moves.<br>
+<blockquote>
+<p>
+<code>1</code>: Rotate around its current barycenter.<br>
+<code>2</code>: Flip horizontally.<br>
+<code>3</code>: Flip vertically.<br>
+<code>4</code>: Translate horizontally.<br>
+<code>5</code>: Translate vertically.<br>
+<code>6</code>: Zoom in and out.<br>
+<code>7</code>: Rotate around its origin barycenter.<br>
+</p></blockquote><br>
+
+<code>SPACE</code>: Export a <code>.svg</code> file of the current scene.<br>
+<code>Q</code>: Quit the program.</p>
+
+
+<h2 id="ds">Data Structures</h2>
+<p>This section will introduce the main data structures that I defined for the general use in this Assignment. The following classes are defined in <code>Helper.h</code> and <code>Editor.h</code> file.</p>
+
+<blockquote>
+<p>
+<code>VertexBufferObject</code><br>
+<code>Program</code><br>
+<code>Editor</code><br>
+</p></blockquote>
+
+<h3>VertexBufferObject</h3>
+<p> A VBO is a data container that lives in the GPU memory. It uploads the vertex data we define as a matrix on CPU side and connects data with a position "slot" on GPU side. </p>
+<blockquote>
+<pre><code>class VertexBufferObject {
+public:
+    typedef unsigned int GLuint;
+    typedef int GLint;
+
+    GLuint id;
+    GLuint rows;
+    GLuint cols;
+
+    VertexBufferObject() : id(0), rows(0), cols(0) {}
+    void init();
+    void update(const Eigen::MatrixXf& M);
+    void bind();
+    void free();
+};</code></pre>
+</blockquote>
+
+	<p><code>update()</code> method of VBO will take in a <code>4 X N</code> Eigen Matrix of float. Each column of the Eigen Matrix stores the information about a single vertex. The first two rows represents the corresponding x coordinate and y coordinate of a vertex position. The third and forth value of same column is used as a color and animation indicators (more explanation below) </p>
+<blockquote>
+<p> Possible Matrix
+<pre><code>0.0, 0.3, -0.3  /* new triangle will be here. */
+0.3, 0.0, 0.0
+1.0, 3.0, 4.0
+2.0, 2.0, 2.0
+</code></pre>
+</p></blockquote>
+<p>The Matrix above can be interpreted as 3 vertices (of a triangle). The color indicator of the first vertex is 1.0. The color indicator of the second vertex is 3.0. The third is 4.0. The animation indicator for all three vertices are 2.0. The three vertices of the same triangle always have a same animation indicator value. When the program is running, these are the data that will be send to GPU. When new triangles are inserted, the matrix will expand to it right, so the 4th to 6th column will be used to shore information about the second triangle, 7th to 9th used for the third, and so on.</p>
+
+<h3>Program</h3>
+<blockquote>
+<pre><code>class Program {
+public:
+    typedef unsigned int GLuint;
+    typedef int GLint;
+    GLuint vertex_shader;
+    GLuint fragment_shader;
+    GLuint program_shader;
+
+    Program() : vertex_shader(0), fragment_shader(0), program_shader(0) { }
+    bool init(const std::string vertex_shader_filename, const std::string fragment_shader_filename, const std::string &fragment_data_name);
+
+    void bind();
+    void free();
+    GLint attrib(const std::string &name) const;
+    GLint uniform(const std::string &name) const;
+    GLint bindVertexAttribArray(const std::string &name, VertexBufferObject& VBO) const;
+    GLuint create_shader_helper(GLint type, const std::string &shader_filename);
+    std::string read_glsl_file(const std::string &pathToFile);
+};</code></pre>
+</blockquote>
+
+<p>A Program is composed of two shaders: one vertex shader and one fragment shader. Each shader is initialized by calling <code>create_shader_helper</code> function on the <code>.glsl</code> file under the <code>../src/</code> folder. The task of reading <code>.glsl</code> files into <code>GLchar</code> is taken over by the <code>read_glsl_file</code> method. The Program <code>init()</code> will bind these two shader together into one on GPU side. Here are how these two shaders look like.</p>
+<blockquote>
+    <p>Vertex shader gets a <code>position</code> as input, which is bind with VBO we previously mentioned. It is in fact a column of the <code>4 X N</code> matrix, so it contains an x and y, a color indicator as float and an animation indicator as float. The output of this vertex shader is <code>f_color</code>, as the inout to fragment shader for further rasterization. In addition, vertex shader also directly output to a GL variable<code>gl_Position</code> to determine the vertex position exists on GPU. There are also some global variables in the vertex shader, which declared as uniform.</p>
+    <p><code>model</code> is the model matrix defined for the current vertex.<br>
+        <code>view</code> is the viewing matrix dthat change vertex from world coordinate system to camera coordinate system.<br>
+        <code>barycenter</code> is a 2D vector that represents the the barycenter of the triangle that the current vertex belongs to.<br>
+        <code>time</code> is a float value of the time since the start of the program.<br>
+        <code>animated</code> indicates whether the program is now in animation mode.<br>
+    </p>
+<pre><code>in vec4 position;
+out vec3 f_color;
+
+uniform mat4 view;
+uniform mat4 model;
+uniform vec2 barycenter;
+uniform float time;
+uniform int animated;
+
+void main()
+{
+    ...
+
+    gl_Position = ...
+    f_color = ...
+};
+</code></pre>
+</blockquote>
+
+<blockquote>
+    <p>Fragment shader uses the <code>f_color</code> from vertex shader as input, and output <code>outColor</code> as the final output. It also takes a uniform boolean variable <code>click</code>. The reason of passing in this variable is that to indicate a triangle being clicked, we mark the triangle in blue color instead of its origin color. By checking this <code>click</code>  variable, program knows whether it should display blue color or not. </p>
+<pre><code>out vec4 outColor;
+in vec3 f_color;
+uniform bool click;
+
+void main()
+{
+    outColor = ...
+}
+</code></pre>
+</blockquote>
+
+<h3>Editor</h3>
+<p>Editor class is used as a state machine to represent the current status of the editor. Below is the detail construction of Editor with comments.</p>
+<blockquote>
+<pre><code>class Editor {
+    public:
+        int mode;
+        int triangle_count;    // Numbers of triangle that have been inserted.
+        int insert_step;       // Indicate which step (1,2,3) is the program at of insertion. 
+        int ith_triangle;      // Used by: Translate, Delete, Animation. Which triangle was clicked.
+        bool triangle_clicked; // If the mouse now clicked on a triangle.
+        int closest_vertex;    // Used by: Colorize, Bezier
+        int bezier_step;       // Which step is the program at when editing bezier curve.
+        float aspect_ratio;
+        float width;
+        float height;
+        int animation_type;    // animation type: 1-7.
+        int snap_num;          // screen shot counter. for different file names.
+
+        Eigen::MatrixXf V;
+        Eigen::Matrix4f view;
+        Eigen::MatrixXf model;
+        Eigen::MatrixXf translation;
+        Eigen::MatrixXf rotation;
+        Eigen::MatrixXf scaling;
+
+        Vector2d p0; // previous cursor position
+        Vector2d p1; // current cursor position
+
+    void init(void);
+    bool click_on_triangle(Eigen::Vector2d world_coord_2d);
+    void find_closest_vertex(int from, int to, int nv);
+    void model_matrix_expand(void);
+    void rotate_by(double degree, int direction);
+    void scale_by(double percentage, int up);
+    void delete_at(int triangle_index);
+    void switch_mode(int m);
+    float bezier_curve(float V1, float V2, float V3, float V4, float t);
+    void screenshot(const char* filename);
+    Eigen::Vector2d pixel_to_world_coord(Eigen::Vector4f pixel, int width, int height);
+    std::string color_to_hex(float c);
+};
+</code></pre>
+</blockquote>
+
+
+<h2 id="ds">Operations</h2>
+<p>The following section will introduce all the operations supported by this application.</p>
+<h3>Insert</h3>
+<blockquote>
+<p> Instruction:
+<pre>press 'I' on keyboard;<br>
+click inside the window on some where you want to put the first vertex of triangle;<br>
+release the mouse;<br>
+click inside the window on some where you want to put the second vertex of triangle;<br>
+release the mouse;<br>
+click inside the window on some where you want to put the third vertex of triangle;<br>
+release the mouse;
+</pre>
+</p></blockquote>
+<video width="640" height="480" controls>
+  <source src="images/insert.mp4" type="video/mp4">
+</video>
+
+<h3>Colorize</h3>
+<blockquote>
+<p> Instruction:
+<pre>press 'C' on keyboard;<br>
+click on a vertex of triangle;<br>
+release the mouse;<br>
+press number key 1-9 to change color for the current vertex;<br>
+either press number key 1-9 to select another color or move mouse and click on other vertices;
+</pre>
+</p></blockquote>
+<video width="640" height="480" controls>
+  <source src="images/colorize.mp4" type="video/mp4">
+</video>
+
+<h3>Translate, Scale and Rotate</h3>
+<blockquote>
+<p> Instruction:
+<pre>press 'O' on keyboard;<br>
+click on a triangle
+(when the mouse is pressed, selected triangle will be marked as blue.);<br>
+you can drag the triangle to anywhere you want before the mouse release;<br>
+release the mouse 
+(after the mouse is released, selected triangle will have glowing effect to indicate selection);<br>
+press 'H','J' on the keyboard to rotate, 'K','L' to scale;<br>
+you can click mouse on blank space to unselect the triangle or click on other triangles to continue;
+</pre>
+</p></blockquote>
+<video width="640" height="480" controls>
+  <source src="images/tsr.mp4" type="video/mp4">
+</video>
+
+<h3>View Control</h3>
+<blockquote>
+<p> Instruction:
+<pre>press one of the keys from 'W','A','S','D','+','-';
+</pre>
+</p></blockquote>
+<video width="640" height="480" controls>
+  <source src="images/view.mp4" type="video/mp4">
+</video>
+
+<h3>Animation</h3>
+<blockquote>
+<p> Instruction:
+<pre>press 'U' on keyboard;<br>
+click on a triangle
+(when the mouse is pressed, selected triangle will be marked as blue.);<br>
+release the mouse 
+(after the mouse is released, selected triangle will have glowing effect to indicate selection);<br>
+press number key 1-7 to start animation for the selected triangle
+(after the animation start, you can press other key in 1-7 to change animation type);<br>
+click on other triangles to start animation for other triangles;<br>
+you can click mouse on blank space to unselect the triangle;
+</pre>
+</p></blockquote>
+<video width="640" height="480" controls>
+  <source src="images/animation.mp4" type="video/mp4">
+</video>
+
+<h3>Bezier Curve</h3>
+<blockquote>
+<p> Instruction:
+<pre>press 'Y' on keyboard;<br>
+click inside the window on some where you want to put the first control point of the Bezier Curve;<br>
+release the mouse;<br>
+click inside the window on some where you want to put the second control point of the Bezier Curve;<br>
+release the mouse;<br>
+click inside the window on some where you want to put the third control point of the Bezier Curve;<br>
+release the mouse;<br>
+click inside the window on some where you want to put the third control point of the Bezier Curve;<br>
+release the mouse;<br>
+you can drag on any of the control point to reshape the curve.
+</pre>
+</p></blockquote>
+<video width="640" height="480" controls>
+  <source src="images/bezier.mp4" type="video/mp4">
+</video>
+
+<h3>Export SVG</h3>
+<blockquote>
+<p> Instruction:
+<pre>press 'SPACE' anytime when you want to capture the scene;
+</pre>
+</p></blockquote>
+<figure>
+<img src="images/snap0.svg" style="width:640px;" />
+<img src="images/snap1.svg" style="width:640px;" />
+</figure>
+
+<h3>Model as Uniform</h3>
+<p>The model matrix is uploaded to GPU as a uniform variable. So, instead of updating the vertex positions on every translation, scaling or rotation, we simply upload a model matrix to GPU and leave the vertex position unchanged. All the computation works are done within the GPU. </p>
+
+
+<h2 id="ds">How To Run?</h2>
+<p>Within the zx979 folder:</p>
+<blockquote>
+<pre><code>cd Assignment_2
+mkdir build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Release ../
+make
+./Assignment2_bin</code></pre>
+</blockquote>
+
+
+</body>
+</html>
